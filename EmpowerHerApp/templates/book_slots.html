@@ -1,0 +1,58 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+
+
+<div id="portfolio" class="our-portfolio section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-5">
+          <div class="section-heading wow fadeInLeft" data-wow-duration="1s" data-wow-delay="0.3s">
+            <h6>Our Portofolio</h6>
+            <h4>See Our Recent <em>Projects</em></h4>
+            <div class="line-dec"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container-fluid wow fadeIn" data-wow-duration="1s" data-wow-delay="0.7s">
+      <div class="row">
+        <div class="col-lg-4">
+          <a href="/join_panel" 
+                            class="list-group-item list-group-item-action rounded-pill"
+                            style="box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                             margin-bottom: 3px; 
+                            text-align: center; text-shadow: 1px 1px 3px #000000;">
+                            Wanna Contribute by Joining our Panel?
+                </a>
+        </div>
+        <div class="col-lg-12">
+          <div class="loop owl-carousel">
+              {% for i in person %}
+            <div class="item" style="height: 600px;">
+              <a href="#">
+                <div class="portfolio-item">
+                <div class="thumb">
+                  <img src="{{i.image.url}}" height="250px"alt="">
+                </div>
+                <div class="down-content">
+                  <h4>{{i.name}}</h4>
+                  <p>{{i.description}}</p>
+                  <span><a href="{{i.twitter}}"><i class="fa fa-twitter"></i></a></span>
+                  <span><a href="{{i.linkedinId}}"><i class="fa fa-linkedin-square"></i></a></span>
+                  <br>
+                  <a href="" class="btn btn-primary rounded-pill">Book Slot Now</a>
+                </div>
+              </div>
+              </a>  
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      
+        
+    </div>
+  </div>
+
+{% endblock %}

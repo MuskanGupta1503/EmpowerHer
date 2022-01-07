@@ -1,0 +1,118 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<!-- <br><br><br><br><br> -->
+
+<div class="container-fluid mt-3">
+    <div class="row">
+        <div id="blog" class="blog col-lg-12 mx-auto">
+            <div class="container">
+              <div class="row " style="margin-bottom: 20px;">
+                <div class="col-lg-3"></div>
+                <div class="col-lg-9">
+                <a href="/post_opportunity" 
+                            class="list-group-item list-group-item-action"
+                            style="box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                            border-radius: 5px; margin-bottom: 3px; 
+                            text-align: center; text-shadow: 1px 1px 3px #000000;">
+                            Post a new opportunity
+                </a>
+              </div>
+              </div>
+              <div class="row">
+                <div class="col-lg-12 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.3s">
+                  <div class="blog-posts">
+                    <div class="row">
+                    <div class="col-lg-3">
+                        <div class="list-group">
+                            <a href="/opportunity" 
+                            class="list-group-item list-group-item-action"
+                            style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                            border-radius: 5px; margin-bottom: 3px; text-align: center; text-shadow: 1px 1px 3px #000000;">
+                            All Opportunities</a>
+                           {% for i in category %}
+                            <a href="/opportunity/?category={{i.id}}" 
+                            class="list-group-item list-group-item-action "
+                            style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+                            border-radius: 5px; margin-bottom: 3px; text-align: center; text-shadow: 1px 1px 3px #000000;"
+                            >{{i.name}}</a>
+                           {% endfor %}
+                          </div>
+                    </div>
+                      <div class="col-lg-9">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link " id="home-tab" data-bs-toggle="tab" data-bs-target="#home" 
+                              type="button" role="tab" aria-controls="home" aria-selected="true">Women Only</a></button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                              <button class="nav-link active" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact"
+                            type="button" role="tab" aria-controls="contact" aria-selected="false">Open For All</a></button>
+                            </li>
+                          </ul>
+                          <div class="tab-content" id="myTabContent">
+                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                                <br>
+                                {% for i in opportunity %}
+                                {% if i.isForWomen %}
+                                <div class="post-item" >
+                                  <div class="thumb">
+                                    <a href="#"><img src="{{i.image.url}}" alt="" height="180px;"></a>
+                                  </div>
+                                  <div class="right-content">
+                                    <span class="category" >
+                                        <a href="{{i.applylink}}" style="color: white;">Apply Now</a></span>
+                                    <span class="date">Last Date to Apply : {{i.lastdate}}</span>
+                                    <a href="#"><h4>{{i.title}}</h4></a>
+                                    <p>{{i.description}}</p>
+                                  </div>
+                                </div>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                           
+                            <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+                                <br>
+                                {% for i in opportunity %}
+                                {% if  not i.isForWomen %}
+                                <div class="post-item" >
+                                  <div class="thumb">
+                                    <a href="#"><img src="{{i.image.url}}" alt="" height="180px;"></a>
+                                  </div>
+                                  <div class="right-content">
+                                    <span class="category" >
+                                        <a href="{{i.applylink}}" style="color: white;">Apply Now</a></span>
+                                    <span class="date">Last Date to Apply : {{i.lastdate}}</span>
+                                    <a href="#"><h4>{{i.title}}</h4></a>
+                                    <p>{{i.description}}</p>
+                                  </div>
+                                </div>
+                                {% endif %}
+                                {% endfor %}
+                            </div>
+                          </div>
+                        <!-- {% for i in opportunity %}
+                        <div class="post-item" >
+                          <div class="thumb">
+                            <a href="#"><img src="{{i.image.url}}" alt="" height="180px;"></a>
+                          </div>
+                          <div class="right-content">
+                            <span class="category" >
+                                <a href="{{i.applylink}}" style="color: white;">Apply Now</a></span>
+                            <span class="date">Last Date to Apply : {{i.lastdate}}</span>
+                            <a href="#"><h4>{{i.title}}</h4></a>
+                            <p>{{i.description}}</p>
+                          </div>
+                        </div>
+                        {% endfor %} -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+</div>
+
+{% endblock %}

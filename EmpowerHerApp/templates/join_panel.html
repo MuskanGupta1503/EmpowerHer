@@ -1,0 +1,65 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<!-- <br><br><br><br><br> -->
+
+<div id="contact" class="contact-us section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 offset-lg-3">
+          <div class="section-heading wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
+            <h6>Contact Us</h6>
+            <h4>Get In Touch With Us <em>Now</em></h4>
+            <div class="line-dec"></div>
+          </div>
+        </div>
+        <div class="col-lg-12 wow fadeInUp" data-wow-duration="0.5s" data-wow-delay="0.25s">
+          <form id="contact" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="fill-form">
+                  <div class="row">
+                    <div class="col-lg-12">
+                        <h4>Join Our Panel</h4>
+                      </div>                         
+                    <div class="col-lg-6">
+                      <fieldset>
+                        <input type="text" name="name" id="name" placeholder="Name" autocomplete="on" required>
+                      </fieldset>
+                      <fieldset>
+                        <input type="text" name="linkedinId" id="name" placeholder="LinkedIn Link" autocomplete="on" required>
+                      </fieldset>
+                      <fieldset>
+                        <input type="text" name="twitter" id="name" placeholder="Twitter Link" autocomplete="on" required>
+                      </fieldset>
+                      <fieldset>
+                        <input type="file" name="myfile" id="image" placeholder=" Image" required autocomplete="on">
+                      </fieldset>
+                
+                      
+                    </div >
+                    <div class="col-lg-6">
+                      <fieldset>
+                        <textarea name="description" type="text" class="form-control" id="message" placeholder="Description" required=""></textarea>  
+                      </fieldset>
+                      <br><br>
+                  
+                    </div>
+                    <div class="col-lg-12">
+                      <fieldset>
+                        <input type="submit"  class="btn btn-primary" value="Join The Panel">
+                      </fieldset>
+                    </div>
+                      
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
